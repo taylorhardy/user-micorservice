@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-microservice
+  labels:
+    app: user-microservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-microservice
+  template:
+    metadata:
+      labels:
+        app: user-microservice
+    spec:
+      containers:
+      - name: user-microservice
+        image: taylorhardy177/user-microservice
+        ports:
+        - containerPort: 8080
