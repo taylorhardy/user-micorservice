@@ -3,10 +3,12 @@ kind: Service
 metadata:
   name: user-microservice
   labels:
+    service: user-microservice
     run: user-microservice
 spec:
   ports:
   - port: 8080
     protocol: TCP
   selector:
+    service: user-microservice
     run: user-microservice
