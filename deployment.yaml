@@ -15,7 +15,7 @@ spec:
         app: user-microservice
     spec:
       containers:
-      - name: userfeed
+      - name: user-microservice
         image: taylorhardy177/user-microservice
         ports:
         - containerPort: 8080
@@ -72,6 +72,10 @@ spec:
             secretKeyRef:
               name: env-secret
               key: POSTGRES_USERNAME
+        volumeMounts:
+          - name: aws-secret
+            mountPath: "/root/.aws/"
+            readOnly: true   
       volumes:
         - name: aws-secret
           secret:
